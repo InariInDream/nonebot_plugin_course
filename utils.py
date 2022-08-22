@@ -88,6 +88,7 @@ class CourseManager(object):
         self.config_folder_make()
         self.data_manager = DataManager()
         self.template_manager = TemplateManager()
+        # 上下课时间
         self.exact_time = {
             "1": {"start": "08:20", "end": "09:05"},
             "2": {"start": "09:10", "end": "09:55"},
@@ -184,6 +185,7 @@ class CourseManager(object):
                        "classroom": "",
                        "week": []}
 
+        # 新用户的周数默认初始化为1
         self.data_manager.course_data[user_id] = {'week': 1}
         for i in range(7):
             i += 1
@@ -209,7 +211,7 @@ class CourseManager(object):
                     users_list.append(user_id)
             except KeyError:
                 pass
-        # py里面似乎没有for(auto)的语法，所以这里先添加了一次用户名单
+        # py里面似乎没有for(auto)的语法，所以这里先添加了一次用户名单，再挨个更新周数
         for user in users_list:
             self.data_manager.course_data[str(user)]['week'] += 1
         self.save()
@@ -242,18 +244,30 @@ class CourseManager(object):
         :param event:
         :return:
         """
+        # 获取当前周数
         current_week = self.get_week(event)
+
+        # 获取当前是周几
         current_weekday = get_weekday()
+
+        # 获取当前格式化时间
         now_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         msg = ""
+
+        # 取前十位到日期
         current_day = now_time[:10]
+
+        # 当前时间戳
         current_time_stamp = int(time.mktime(time.strptime(now_time, '%Y-%m-%d %H:%M:%S')))
         today_data = self.data_manager.course_data[str(event.user_id)][str(current_weekday)]
         is_in_class = 0
         next_class = 0
         for i in range(1, 14):
+            # 今日上下课时间
             course_start_time = f"{current_day} {self.exact_time[str(i)]['start']}"  # 注意有空格
             course_end_time = f"{current_day} {self.exact_time[str(i)]['end']}"
+
+            # 今日上下课时间的时间戳
             course_start_time_stamp = int(time.mktime(time.strptime(course_start_time, '%Y-%m-%d %H:%M')))
             course_end_time_stamp = int(time.mktime(time.strptime(course_end_time, '%Y-%m-%d %H:%M')))
             for course in today_data[str(i)]:
@@ -293,11 +307,6 @@ class CourseManager(object):
         tmp = f"当前时间为{now_time},第{current_week}周{weekday_info}\n"
         msg = tmp + msg
         return msg
-
-
-
-
-
 
 
 # 实例化

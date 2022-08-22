@@ -26,6 +26,7 @@ class DefaultTemplate(PicTemplate):
         super().__init__()
         self.name = 'default'
         self.load_resource()
+        # 颜色
         self.colors = {
             'blue': (23, 43, 59),
             'yellow': (224, 164, 25),
@@ -120,6 +121,8 @@ class DefaultTemplate(PicTemplate):
                 table.align_box(f'box_0_{i}', header, align='center'),
                 isalpha=True
             )
+
+        # 每节课上下课时间，可根据需要自行更改
         exact_time = {
             "1": {"start": "08:20", "end": "09:05"},
             "2": {"start": "09:10", "end": "09:55"},
@@ -135,6 +138,8 @@ class DefaultTemplate(PicTemplate):
             "12": {"start": "18:50", "end": "19:35"},
             "13": {"start": "19:40", "end": "20:25"},
         }
+
+        # 填时间
         for x in range(row_num):
             row_id = x + 1
             id_text = simple_text(f"{exact_time[str(row_id)]['start']} - {exact_time[str(row_id)]['end']}",
@@ -155,6 +160,7 @@ class DefaultTemplate(PicTemplate):
                 y = str(y)
                 try:
                     for course in data[x][y]:
+                        # 判断是否是本周课表
                         if current_week is not None and current_week not in course['week']:
                             continue
                         else:
@@ -173,8 +179,8 @@ class DefaultTemplate(PicTemplate):
                 except KeyError:
                     pass
         table_size = table.img.size
-        # 添加注释
 
+        # 添加注释
         note_basic_text = simple_text('注：没显示就是没有你的数据，请联系管理员',
                                       size=self.basic_font_size,
                                       color=self.colors['blue'],

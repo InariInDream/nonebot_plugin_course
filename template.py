@@ -27,7 +27,7 @@ class DefaultTemplate(PicTemplate):
         self.name = 'default'
         self.load_resource()
         self.colors = {
-            'blue': (34, 52, 73),
+            'blue': (23, 43, 59),
             'yellow': (224, 164, 25),
             'white': (237, 239, 241)
         }

@@ -59,13 +59,13 @@
 
 3. 保存json文件后就可以快乐地添加课表了
 
-4. 在任意一个群内发送“完整课表”，即可初始化当前帐号的课表结构
+4. 在任意一个群内发送“完整课表”，即可自动初始化当前帐号的课表结构
 
 ![](https://github.com/InariInDream/nonebot_plugin_course/blob/main/resources/2022-08-22-23-33-19.png)
 
 ![](https://github.com/InariInDream/nonebot_plugin_course/blob/main/resources/2022-08-22-23-11-43.png)
 
-1. 根据自己的课表情况填写即可
+5. 根据自己的课表情况在框内填写即可
 
 ### 功能展示
 ![](https://github.com/InariInDream/nonebot_plugin_course/blob/main/resources/2022-08-22-23-19-00.png)

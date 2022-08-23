@@ -79,6 +79,27 @@ def get_weekday():
     return datetime.datetime.now().weekday() + 1
 
 
+def get_rest_time(current, query_time):
+    """
+    将剩余时间的秒数转为天时分秒（若为0则不显示）
+    """
+    diff = query_time - current
+    d = diff // (24 * 3600)
+    dr = diff % (24 * 3600)
+    h = dr // 3600
+    hr = dr % 3600
+    m = hr // 60
+    if d is not 0:
+        msg = f"{d}天{h}小时{m}分"
+        return msg
+    elif h is not 0:
+        msg = f"{h}小时{m}分"
+        return msg
+    else:
+        msg = f"{m}分钟"
+        return msg
+
+
 class CourseManager(object):
     """
     说明:课表管理类
@@ -273,12 +294,12 @@ class CourseManager(object):
             for course in today_data[str(i)]:
                 if course_start_time_stamp <= current_time_stamp <= course_end_time_stamp\
                         and current_week in course['week']:
-                    msg += f"当前您正在上第{i}节课,为{course['name']},地点为{course['classroom']}\n"
+                    msg += f"当前您正在上第{i}节课,为{course['name']},地点为{course['classroom']}\n还有{get_rest_time(current_time_stamp, course_end_time_stamp)}下课 "
                     is_in_class = 1
                     break
             for course in today_data[str(i)]:
                 if current_time_stamp < course_start_time_stamp and current_week in course['week']:
-                    msg += f"今天的下一节课为{course['name']},地点为{course['classroom']}\n,上课时间为{self.exact_time[str(i)]['start']},请注意不要迟到\n"
+                    msg += f"今天的下一节课为{course['name']},地点为{course['classroom']}\n,上课时间为{self.exact_time[str(i)]['start']}\n还有{get_rest_time(current_time_stamp, course_start_time_stamp)}上课，请注意不要迟到 "
                     next_class = 1
                     break
             if is_in_class == 1 and next_class == 1:

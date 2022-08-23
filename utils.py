@@ -226,15 +226,15 @@ class CourseManager(object):
         self.data_manager.course_data = self.data_manager.load_class_info()
         tmp_data = self.data_manager.course_data
         users_list = []
-        for user_id in tmp_data:
+        for user_id, value in tmp_data.items():
             try:
-                if user_id['week']:
+                if user_id.isdigit() and value['week']:
                     users_list.append(user_id)
             except KeyError:
                 pass
         # py里面似乎没有for(auto)的语法，所以这里先添加了一次用户名单，再挨个更新周数
         for user in users_list:
-            self.data_manager.course_data[str(user)]['week'] += 1
+            self.data_manager.course_data[user]['week'] += 1
         self.save()
 
     def set_week(self, event, week: int):
@@ -298,7 +298,7 @@ class CourseManager(object):
                     is_in_class = 1
                     break
             for course in today_data[str(i)]:
-                if current_time_stamp < course_start_time_stamp and current_week in course['week']:
+                if current_time_stamp < course_start_time_stamp and current_week in course['week'] and next_class == 0:
                     msg += f"今天的下一节课为{course['name']},地点为{course['classroom']}\n,上课时间为{self.exact_time[str(i)]['start']}\n还有{get_rest_time(current_time_stamp, course_start_time_stamp)}上课，请注意不要迟到 "
                     next_class = 1
                     break

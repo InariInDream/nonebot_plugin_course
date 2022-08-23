@@ -14,6 +14,7 @@
 </a>
 </div>
 
+<<<<<<< HEAD
 <!--ts-->
 * [nonebot-plugin-course](#nonebot-plugin-course)
    * [<g-emoji class="g-emoji" alias="bulb" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a1.png">💡</g-emoji>写在前面](#写在前面)
@@ -36,6 +37,8 @@
 <!-- Added by: runner, at: Tue Aug 23 08:07:32 UTC 2022 -->
 
 <!--te-->
+=======
+>>>>>>> 58d5635 (更新readme)
 
 
 ## 💡写在前面
@@ -219,6 +222,10 @@ nb plugin install nonebot-plugin-course
 - **查看课表** + **周数**：查询指定周的课表
 - **设置周数** + **周数**：设定当前是第几周
 - **上课**：查询当前是否有课，及今天的下一节课是什么，还有多久上
+<<<<<<< HEAD
+=======
+![](https://github.com/InariInDream/nonebot_plugin_course/blob/main/resources/2022-08-22-23-19-00.png)
+>>>>>>> 58d5635 (更新readme)
 
 ![](https://github.com/InariInDream/nonebot_plugin_course/blob/main/resources/2022-08-22-23-20-19.png)
 

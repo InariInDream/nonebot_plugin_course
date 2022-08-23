@@ -36,7 +36,7 @@
 
     ⬜︎ 自定义课表表格的行数与列数
 
-    ⬜︎ 保姆式开箱即用
+    ⬜︎ 这个老师经常点名？在Ta上课前半小时自动提醒我
 
     ⬜︎ 支持不同账号设定不同的上下课时间，而非一个bot共用一套上下课时间
     <!-- ☑︎ -->
@@ -137,6 +137,15 @@ nb plugin install nonebot-plugin-course
 ```
 
 ## 📈功能展示
+
+### 指令
+
+- **本周课表**：查看这周的课表
+- **完整课表**：查看完整的课表
+- **下周课表**：查看下周的课表
+- **查看课表** + **周数**：查询指定周的课表
+- **设置周数** + **周数**：设定当前是第几周
+- **上课**：查询当前是否有课，及今天的下一节课是什么，还有多久上
 ![](https://github.com/InariInDream/nonebot_plugin_course/blob/main/resources/2022-08-22-23-19-00.png)
 
 ![](https://github.com/InariInDream/nonebot_plugin_course/blob/main/resources/2022-08-22-23-20-19.png)

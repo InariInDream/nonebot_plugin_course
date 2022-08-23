@@ -12,8 +12,6 @@
 <img src="https://img.shields.io/badge/python-3.8.10-green" alt="python"> <img src="https://img.shields.io/badge/license-MIT-blue" alt="license"> <img src="https://img.shields.io/badge/nonebot-2.0.0b4-orange" alt="nonebot2">
 </div>
 
-[]
-
 ## 💡写在前面
 
 特别感谢[hamo](https://github.com/hamo-reid)的[*nonebot_plugin_PicMenu*](https://github.com/hamo-reid/nonebot_plugin_PicMenu)提供的图片生成工具img_tool和很多思路

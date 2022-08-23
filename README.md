@@ -15,6 +15,7 @@
 </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!--ts-->
 * [nonebot-plugin-course](#nonebot-plugin-course)
    * [<g-emoji class="g-emoji" alias="bulb" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a1.png">💡</g-emoji>写在前面](#写在前面)
@@ -39,6 +40,10 @@
 <!--te-->
 =======
 >>>>>>> 58d5635 (更新readme)
+=======
+<!--ts-->
+<!--te-->
+>>>>>>> 0b6748b (更新readme)
 
 
 ## 💡写在前面

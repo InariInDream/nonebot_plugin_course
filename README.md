@@ -219,7 +219,6 @@ nb plugin install nonebot-plugin-course
 - **查看课表** + **周数**：查询指定周的课表
 - **设置周数** + **周数**：设定当前是第几周
 - **上课**：查询当前是否有课，及今天的下一节课是什么，还有多久上
-![](https://github.com/InariInDream/nonebot_plugin_course/blob/main/resources/2022-08-22-23-19-00.png)
 
 ![](https://github.com/InariInDream/nonebot_plugin_course/blob/main/resources/2022-08-22-23-20-19.png)
 

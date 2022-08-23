@@ -132,6 +132,7 @@ nb plugin install nonebot-plugin-course
         "2":{ // 周二
             ...
         },
+        ...
 }
 ```
 
@@ -142,7 +143,7 @@ nb plugin install nonebot-plugin-course
 
 ![](https://github.com/InariInDream/nonebot_plugin_course/blob/main/resources/2022-08-22-23-22-17.png)
 
-![](https://github.com/InariInDream/nonebot_plugin_course/blob/main/resources/2022-08-22-23-22-56.png)
+![](https://github.com/InariInDream/nonebot_plugin_course/blob/main/resources/2022-08-23-11-57-14.png)
 
 ![](https://github.com/InariInDream/nonebot_plugin_course/blob/main/resources/2022-08-22-23-23-40.png)
 

@@ -2,8 +2,43 @@ import abc
 import json
 from pathlib import Path
 from PIL import Image
+from pydantic import error_wrappers
 
 from nonebot_plugin_PicMenu.img_tool import simple_text, multi_text, ImageFactory, auto_resize_text
+from nonebot import logger
+
+
+class DataManager(object):
+    def __init__(self):
+        """
+        说明:初始化
+        """
+        self.course_data = {}
+
+    def load_class_info(self):
+        """
+        说明:加载课程信息
+        :return:
+        """
+        def load_from_json(_json_path: Path):
+            """
+            说明:加载json文件
+            :param _json_path:
+            :return:
+            """
+            self.course_data = json.loads(_json_path.read_text(encoding='utf-8'))
+
+        try:
+            load_from_json(Path.cwd() / 'data' / 'course_config' / 'config.json')
+            logger.success(f'课表数据加载成功')
+        except json.JSONDecodeError as e:
+            logger.opt(colors=True).error(f'<y>课表</y> 课表数据加载失败 <c>(from json)</c>\n'
+                                          f'<y>json解析失败</y>: {e}')
+        except error_wrappers.ValidationError as e:
+            logger.opt(colors=True).error(f'<y>课表</y> 课表数据加载失败 <c>(from json)</c>\n'
+                                          f'<y>json缺少必要键值对</y>: \n'
+                                          f'{e}')
+        return self.course_data
 
 
 class PicTemplate(metaclass=abc.ABCMeta):  # 模板类
@@ -44,6 +79,9 @@ class DefaultTemplate(PicTemplate):
     def generate_main_menu(self, data: dict, event, current_week=None) -> Image:
         user_id = event.user_id
 
+        data_manager = DataManager()
+
+        user_data = data_manager.load_class_info()[f"{user_id}"]
         # 列数
         column_num = 8
 
@@ -123,21 +161,7 @@ class DefaultTemplate(PicTemplate):
             )
 
         # 每节课上下课时间，可根据需要自行更改
-        exact_time = {
-            "1": {"start": "08:20", "end": "09:05"},
-            "2": {"start": "09:10", "end": "09:55"},
-            "3": {"start": "10:15", "end": "11:00"},
-            "4": {"start": "11:05", "end": "11:50"},
-            "5": {"start": "11:55", "end": "12:25"},
-            "6": {"start": "12:30", "end": "13:00"},
-            "7": {"start": "13:10", "end": "13:55"},
-            "8": {"start": "14:00", "end": "14:45"},
-            "9": {"start": "15:05", "end": "15:50"},
-            "10": {"start": "15:55", "end": "16:40"},
-            "11": {"start": "18:00", "end": "18:45"},
-            "12": {"start": "18:50", "end": "19:35"},
-            "13": {"start": "19:40", "end": "20:25"},
-        }
+        exact_time = user_data['exact_time']
 
         # 填时间
         for x in range(row_num):

@@ -184,6 +184,10 @@ class CourseManager(object):
         if user_id not in self.data_manager.course_data:
             self.blank_struct(event)
             return -1
+        elif "exact_time" not in self.data_manager.course_data[user_id]:
+            self.data_manager.course_data[user_id]["exact_time"] = self.exact_time
+            self.save()
+            self.data_manager.course_data[user_id] = self.data_manager.load_class_info()[user_id]
         else:
             self.data_manager.course_data[user_id] = self.data_manager.load_class_info()[user_id]
 
@@ -207,7 +211,23 @@ class CourseManager(object):
                        "week": []}
 
         # 新用户的周数默认初始化为1
-        self.data_manager.course_data[user_id] = {'week': 1}
+        self.data_manager.course_data[user_id] = {'week': 1,
+                                                  'exact_time': {
+                                                      "1": {"start": "08:20", "end": "09:05"},
+                                                      "2": {"start": "09:10", "end": "09:55"},
+                                                      "3": {"start": "10:15", "end": "11:00"},
+                                                      "4": {"start": "11:05", "end": "11:50"},
+                                                      "5": {"start": "11:55", "end": "12:25"},
+                                                      "6": {"start": "12:30", "end": "13:00"},
+                                                      "7": {"start": "13:10", "end": "13:55"},
+                                                      "8": {"start": "14:00", "end": "14:45"},
+                                                      "9": {"start": "15:05", "end": "15:50"},
+                                                      "10": {"start": "15:55", "end": "16:40"},
+                                                      "11": {"start": "18:00", "end": "18:45"},
+                                                      "12": {"start": "18:50", "end": "19:35"},
+                                                      "13": {"start": "19:40", "end": "20:25"},
+                                                  },
+                                                  }
         for i in range(7):
             i += 1
             self.data_manager.course_data[user_id][str(i)] = {}
@@ -281,12 +301,13 @@ class CourseManager(object):
         # 当前时间戳
         current_time_stamp = int(time.mktime(time.strptime(now_time, '%Y-%m-%d %H:%M:%S')))
         today_data = self.data_manager.course_data[str(event.user_id)][str(current_weekday)]
+        user_exact_time = self.data_manager.course_data[str(event.user_id)]["exact_time"]
         is_in_class = 0
         next_class = 0
         for i in range(1, 14):
             # 今日上下课时间
-            course_start_time = f"{current_day} {self.exact_time[str(i)]['start']}"  # 注意有空格
-            course_end_time = f"{current_day} {self.exact_time[str(i)]['end']}"
+            course_start_time = f"{current_day} {user_exact_time[str(i)]['start']}"  # 注意有空格
+            course_end_time = f"{current_day} {user_exact_time[str(i)]['end']}"
 
             # 今日上下课时间的时间戳
             course_start_time_stamp = int(time.mktime(time.strptime(course_start_time, '%Y-%m-%d %H:%M')))
@@ -299,7 +320,7 @@ class CourseManager(object):
                     break
             for course in today_data[str(i)]:
                 if current_time_stamp < course_start_time_stamp and current_week in course['week'] and next_class == 0:
-                    msg += f"今天的下一节课为{course['name']},地点为{course['classroom']}\n,上课时间为{self.exact_time[str(i)]['start']}\n还有{get_rest_time(current_time_stamp, course_start_time_stamp)}上课，请注意不要迟到 "
+                    msg += f"今天的下一节课为{course['name']},地点为{course['classroom']}\n,上课时间为{user_exact_time[str(i)]['start']}\n还有{get_rest_time(current_time_stamp, course_start_time_stamp)}上课，请注意不要迟到 "
                     next_class = 1
                     break
             if is_in_class == 1 and next_class == 1:
@@ -328,6 +349,16 @@ class CourseManager(object):
         tmp = f"当前时间为{now_time},第{current_week}周{weekday_info}\n"
         msg = tmp + msg
         return msg
+
+    def get_exact_time(self, event):
+        """
+        获取用户上课时间
+        :param event:
+        :return:
+        """
+        self.init_user_data(event)
+        user_id = str(event.user_id)
+        return self.data_manager.course_data[user_id]['exact_time']
 
 
 # 实例化

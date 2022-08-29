@@ -330,7 +330,7 @@ class CourseManager(object):
             msg = f"当前没有正在上的课\n" + msg
 
         if next_class == 0:
-            msg = msg + f"今天剩下没有课了哦\n"
+            msg = msg + f"今天剩下没有课了哦"
         weekday_info = ""
         if current_weekday == 1:
             weekday_info = "星期一"

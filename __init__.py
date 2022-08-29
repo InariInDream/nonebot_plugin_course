@@ -13,6 +13,18 @@ from PIL import Image
 
 from .utils import course_manager, get_weekday
 from nonebot_plugin_PicMenu.img_tool import img2b64
+from nonebot.plugin import PluginMetadata
+
+__plugin_meta__ = PluginMetadata(
+    name='课表查询',
+    description="查询课表，今天还有什么课",
+    usage=f"""本周课表：查看这周的课表\n
+完整课表：查看完整的课表\n
+下周课表：查看下周的课表\n
+查看课表 + 周数：查询指定周的课表\n
+设置周数 + 周数：设定当前是第几周\n
+上课：查询当前是否有课，及今天的下一节课是什么，还有多久上""".strip(),
+)
 
 scheduler = require("nonebot_plugin_apscheduler").scheduler
 

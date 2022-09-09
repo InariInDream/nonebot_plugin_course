@@ -9,9 +9,21 @@
  
 </div>
 <div align="center">
-<img src="https://img.shields.io/badge/python-3.8.10-green" alt="python"> <img src="https://img.shields.io/badge/license-MIT-blue" alt="license"> <img src="https://img.shields.io/badge/nonebot-2.0.0b4-orange" alt="nonebot2"> <a href="https://pypi.python.org/pypi/nonebot_plugin_course">
+<img src="https://img.shields.io/badge/python-3.8.10-green" alt="python"> 
+<a href="https://github.com/InariInDream/nonebot_plugin_course/blob/main/LICENSE">
+<img src="https://img.shields.io/badge/license-MIT-blue" alt="license"> 
+</a>
+<a href="https://pypi.python.org/pypi/nonebot_plugin_course">
+    <img src="https://img.shields.io/pypi/v/nonebot_plugin_course?color=yellow" alt="pypi">
+</a>
+<a href="https://github.com/nonebot/nonebot2">
+<img src="https://img.shields.io/badge/nonebot-2.0.0b4-orange" alt="nonebot2"> 
+</a>
+<a href="https://pypi.python.org/pypi/nonebot_plugin_course">
     <img src="https://img.shields.io/pypi/dm/nonebot_plugin_course" alt="pypi download">
 </a>
+<a href="https://www.codefactor.io/repository/github/inariindream/nonebot_plugin_course"><img src="https://img.shields.io/codefactor/grade/github/InariInDream/nonebot_plugin_course/main?color=red"></a>
+
 </div>
 
 

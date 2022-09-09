@@ -197,7 +197,7 @@ class CourseManager(object):
         :return:
         """
         with (self.cwd / 'data' / 'course_config' / 'config.json').open('w', encoding='utf-8') as fp:
-            json.dump(self.data_manager.course_data, fp, indent=4)
+            json.dump(self.data_manager.course_data, fp, indent=4, ensure_ascii=False)
 
     def blank_struct(self, event: GroupMessageEvent):
         """

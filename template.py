@@ -93,10 +93,10 @@ class DefaultTemplate(PicTemplate):
 
         # 计算周一至周日课表的尺寸
         row_max = -1
-        for x in range(7):
+        for x in range(column_num + 1):
             if x == 0:
                 continue
-            for y in range(13):
+            for y in range(row_num + 1):
                 if y == 0:
                     continue
                 x = str(x)
@@ -176,7 +176,7 @@ class DefaultTemplate(PicTemplate):
         for x in range(column_num):
             if x == 0:
                 continue
-            for y in range(row_num):
+            for y in range(row_num + 1):
                 if y == 0:
                     continue
                 info = ""

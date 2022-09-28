@@ -350,6 +350,72 @@ class CourseManager(object):
         msg = tmp + msg
         return msg
 
+    def tomo_course(self, event):
+        """
+        获取明天第一节课的情报
+        :param event:
+        :return:
+        """
+        # 获取当前周数
+        current_week = self.get_week(event)
+
+        # 获取当前是周几
+        current_weekday = get_weekday()
+
+        if current_weekday != 7:
+            current_weekday += 1
+        else:
+            current_weekday = 1
+            current_week += 1
+
+        # 获取当前格式化时间
+        now_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        msg = ""
+
+        # 获取明天的数据
+        today_data = self.data_manager.course_data[str(event.user_id)][str(current_weekday)]
+        user_exact_time = self.data_manager.course_data[str(event.user_id)]["exact_time"]
+        next_class = 0
+        is_8 = 0
+        for i in range(1, 14):
+            for course in today_data[str(i)]:
+                if current_week in course['week']:
+                    msg += f"明天的第一节课为{course['name']},地点为{course['classroom']}\n,上课时间为{user_exact_time[str(i)]['start']}\n"
+                    next_class = 1
+                    if i == 1:
+                        is_8 = 1
+                    break
+            if next_class == 1:
+                break
+
+        if next_class == 1:
+            if is_8 == 1:
+                msg = "明天有早八，记得早起捏\n" + msg
+            else:
+                msg = "明天没有早八，可以睡个懒觉捏\n" + msg
+        else:
+            msg = "明天没有课哦"
+
+        weekday_info = ""
+        if current_weekday == 1:
+            weekday_info = "星期一"
+        elif current_weekday == 2:
+            weekday_info = "星期二"
+        elif current_weekday == 3:
+            weekday_info = "星期三"
+        elif current_weekday == 4:
+            weekday_info = "星期四"
+        elif current_weekday == 5:
+            weekday_info = "星期五"
+        elif current_weekday == 6:
+            weekday_info = "星期六"
+        elif current_weekday == 7:
+            weekday_info = "星期日"
+
+        tmp = f"当前时间为{now_time},明天是第{current_week}周{weekday_info}\n"
+        msg = tmp + msg
+        return msg
+
     def get_exact_time(self, event):
         """
         获取用户上课时间

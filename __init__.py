@@ -28,17 +28,19 @@ __plugin_meta__ = PluginMetadata(
 
 scheduler = require("nonebot_plugin_apscheduler").scheduler
 
-check_full_timetable = on_startswith("完整课表", permission=GROUP, priority=5, block=True)
+check_full_timetable = on_startswith("完整课表", permission=GROUP, priority=5, block=False)
 
 week_timetable = on_startswith("本周课表", permission=GROUP, priority=5, block=True)
 
 next_week_timetable = on_startswith("下周课表", permission=GROUP, priority=5, block=True)
 
-now_course = on_startswith("上课", permission=GROUP, priority=5, block=True)
+now_course = on_command("上课", permission=GROUP, priority=5, block=True)
 
 set_now_week = on_command("设置周数", permission=GROUP, priority=5, block=True)
 
 check_timetable = on_command("查看课表", permission=GROUP, priority=5, block=True)
+
+tomo_course = on_command("明日早八", permission=GROUP, priority=5, block=True)
 
 
 # 每周一凌晨定时更新当前周数
@@ -77,9 +79,19 @@ async def _(event: GroupMessageEvent):
 
 
 @now_course.handle()
-async def _(event: GroupMessageEvent):
+async def _(event: GroupMessageEvent, arg: Message = CommandArg()):
     msg = course_manager.now_course(event)
-    await now_course.finish(msg)
+    args = arg.extract_plain_text().strip()
+    if args == "":
+        await now_course.finish(msg)
+
+
+@tomo_course.handle()
+async def _(event: GroupMessageEvent, arg: Message = CommandArg()):
+    msg = course_manager.tomo_course(event)
+    args = arg.extract_plain_text().strip()
+    if args == "":
+        await tomo_course.finish(msg)
 
 
 @set_now_week.handle()

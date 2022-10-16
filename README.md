@@ -272,6 +272,8 @@ nb plugin install nonebot-plugin-course
 
 ![](https://github.com/InariInDream/nonebot_plugin_course/blob/main/resources/2022-08-22-23-23-40.png)
 
+![](https://github.com/InariInDream/nonebot_plugin_course/blob/main/resources/UJP@BUK%TOA95TWWL97}}KT.jpg)
+
 
 
 ## 感谢你看到这里，如果觉得还不错的话给个star吧

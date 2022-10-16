@@ -123,6 +123,27 @@ nb plugin install nonebot-plugin-course
 
 ### 初次使用
 1. 上一步完成以后启动一次bot，会自动在根目录的/data文件夹(即bot.py所在文件夹)下生成一个名为course_config的文件夹
+
+    #### **注意**：请确保自己的bot.py同级的文件夹下有一个名为data的文件夹，若没有请自行创建
+    文件结构应为如下所示：
+    ```
+   └─ YourBotName
+     │  .env
+     │  .env.dev
+     │  .env.prod
+     │  .gitignore
+     │  bot.py
+     │  docker-compose.yml
+     │  Dockerfile
+     │  pyproject.toml
+     │  README.md
+     │
+     ├─ __pycache__
+     ├─ src
+     └─ data            # 自创的名为 data 的文件夹
+         └─ course_config # （将会由插件自动生成的名为 course_config 的文件夹）
+    ```
+
    
 2. 打开里面的config.json文件，将"default"字段的值改为任意字体的路径，字体格式为[PIL.ImageFont.truetype](https://pillow.readthedocs.io/en/stable/reference/ImageFont.html?highlight=truetype#PIL.ImageFont.truetype)所支持的字体，比如将第一行改为`"default": "simhei.ttf"`
 

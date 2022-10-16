@@ -270,9 +270,10 @@ nb plugin install nonebot-plugin-course
 
 ![](https://github.com/InariInDream/nonebot_plugin_course/blob/main/resources/2022-08-23-11-57-14.png)
 
+![](https://github.com/InariInDream/nonebot_plugin_course/blob/main/resources/UJP%40BUK%25TOA95TWWL97%7D%7DKT.jpg)
+
 ![](https://github.com/InariInDream/nonebot_plugin_course/blob/main/resources/2022-08-22-23-23-40.png)
 
-![](https://github.com/InariInDream/nonebot_plugin_course/blob/main/resources/UJP@BUK%TOA95TWWL97}}KT.jpg)
 
 
 

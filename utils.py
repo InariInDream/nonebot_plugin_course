@@ -131,6 +131,8 @@ class CourseManager(object):
         说明:创建配置文件夹
         :return:
         """
+        if not (self.cwd / 'data').exists():
+            (self.cwd / 'data').mkdir()
         if not (self.cwd / 'data' / 'course_config').exists():
             (self.cwd / 'data' / 'course_config').mkdir()
         if not (self.cwd / 'data' / 'course_config' / 'fonts').exists():

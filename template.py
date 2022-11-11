@@ -83,7 +83,7 @@ class DefaultTemplate(PicTemplate):
 
         user_data = data_manager.load_class_info()[f"{user_id}"]
         # 列数
-        column_num = 8
+        column_num = 7
 
         # 行数
         row_num = 13
@@ -141,7 +141,7 @@ class DefaultTemplate(PicTemplate):
 
         # 为单元格添加box和绘制边框
         for row_id in range(row_num + 1):
-            for col_id in range(column_num):
+            for col_id in range(column_num + 1):
                 box_size = (column_width_list, row_height_list)
                 table.add_box(f'box_{row_id}_{col_id}',
                               tuple(basis_point),
@@ -173,7 +173,7 @@ class DefaultTemplate(PicTemplate):
                 table.align_box(f'box_{row_id}_0', id_text, align='center'),
                 isalpha=True
             )
-        for x in range(column_num):
+        for x in range(column_num + 1):
             if x == 0:
                 continue
             for y in range(row_num + 1):

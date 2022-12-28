@@ -27,28 +27,47 @@
 </div>
 
 
-<!--ts-->
-* [nonebot-plugin-course](#nonebot-plugin-course)
-   * [<g-emoji class="g-emoji" alias="bulb" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a1.png">💡</g-emoji>写在前面](#写在前面)
-   * [<g-emoji class="g-emoji" alias="star2" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png">🌟</g-emoji>功能](#功能)
-      * [<g-emoji class="g-emoji" alias="dart" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3af.png">🎯</g-emoji>TODO](#todo)
-      * [<g-emoji class="g-emoji" alias="negative_squared_cross_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/274e.png">❎</g-emoji>暂时不会考虑添加的功能](#暂时不会考虑添加的功能)
-   * [<g-emoji class="g-emoji" alias="cd" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4bf.png">💿</g-emoji>如何使用](#如何使用)
-      * [下载](#下载)
-         * [方法一](#方法一)
-         * [方法二](#方法二)
-         * [方法三](#方法三)
-      * [初次使用](#初次使用)
-         * [示例](#示例)
-   * [<g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji><strong>注意事项</strong>](#注意事项)
-   * [<g-emoji class="g-emoji" alias="chart_with_upwards_trend" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c8.png">📈</g-emoji>功能展示](#功能展示)
-      * [指令](#指令)
-   * [感谢你看到这里，如果觉得还不错的话给个star吧](#感谢你看到这里如果觉得还不错的话给个star吧)
+[//]: # (<!--ts-->)
 
-<!-- Created by https://github.com/ekalinin/github-markdown-toc -->
-<!-- Added by: runner, at: Tue Aug 23 08:23:18 UTC 2022 -->
+[//]: # (* [nonebot-plugin-course]&#40;#nonebot-plugin-course&#41;)
 
-<!--te-->
+[//]: # (   * [<g-emoji class="g-emoji" alias="bulb" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a1.png">💡</g-emoji>写在前面]&#40;#写在前面&#41;)
+
+[//]: # (   * [<g-emoji class="g-emoji" alias="star2" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png">🌟</g-emoji>功能]&#40;#功能&#41;)
+
+[//]: # (      * [<g-emoji class="g-emoji" alias="dart" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f3af.png">🎯</g-emoji>TOD]&#40;#tod&#41;)
+
+[//]: # (      * [<g-emoji class="g-emoji" alias="negative_squared_cross_mark" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/274e.png">❎</g-emoji>暂时不会考虑添加的功能]&#40;#暂时不会考虑添加的功能&#41;)
+
+[//]: # (   * [<g-emoji class="g-emoji" alias="cd" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4bf.png">💿</g-emoji>如何使用]&#40;#如何使用&#41;)
+
+[//]: # (      * [下载]&#40;#下载&#41;)
+
+[//]: # (         * [方法一]&#40;#方法一&#41;)
+
+[//]: # (         * [方法二]&#40;#方法二&#41;)
+
+[//]: # (         * [方法三]&#40;#方法三&#41;)
+
+[//]: # (      * [初次使用]&#40;#初次使用&#41;)
+
+[//]: # (         * [示例]&#40;#示例&#41;)
+
+[//]: # (   * [<g-emoji class="g-emoji" alias="exclamation" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2757.png">❗</g-emoji><strong>注意事项</strong>]&#40;#注意事项&#41;)
+
+[//]: # (   * [<g-emoji class="g-emoji" alias="chart_with_upwards_trend" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c8.png">📈</g-emoji>功能展示]&#40;#功能展示&#41;)
+
+[//]: # (      * [指令]&#40;#指令&#41;)
+
+[//]: # (   * [感谢你看到这里，如果觉得还不错的话给个star吧]&#40;#感谢你看到这里如果觉得还不错的话给个star吧&#41;)
+
+[//]: # ()
+[//]: # (<!-- Created by https://github.com/ekalinin/github-markdown-toc -->)
+
+[//]: # (<!-- Added by: runner, at: Tue Aug 23 08:23:18 UTC 2022 -->)
+
+[//]: # ()
+[//]: # (<!--te-->)
 
 
 

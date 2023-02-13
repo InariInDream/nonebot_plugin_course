@@ -141,6 +141,7 @@ class CourseManager(object):
             (self.cwd / 'data' / 'course_config' / 'templates').mkdir()
         if not (self.cwd / 'data' / 'course_config' / 'menus').exists():
             (self.cwd / 'data' / 'course_config' / 'menus').mkdir()
+        # 创建默认字体
         if not (self.cwd / 'data' / 'course_config' / 'config.json').exists():
             with (self.cwd / 'data' / 'course_config' / 'config.json').open('w', encoding='utf-8') as fp:
                 fp.write(json.dumps({'default': 'simhei.ttf'}))

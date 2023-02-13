@@ -5,7 +5,7 @@ from PIL import Image
 from pydantic import error_wrappers
 
 from nonebot_plugin_PicMenu.img_tool import simple_text, multi_text, ImageFactory, auto_resize_text
-from nonebot import logger
+from nonebot import logger, get_driver
 
 
 class DataManager(object):
@@ -83,10 +83,16 @@ class DefaultTemplate(PicTemplate):
 
         user_data = data_manager.load_class_info()[f"{user_id}"]
         # 列数
-        column_num = 7
+        try:
+            column_num = get_driver().config.column_num
+        except :
+            column_num = 7
 
         # 行数
-        row_num = 13
+        try:
+            row_num = get_driver().config.row_num
+        except:
+            row_num = 13
 
         # 数据及表头尺寸测算
         row_size_list = [[[300, 0]for _ in range(row_num + 1)] for _ in range(column_num + 1)]
@@ -128,8 +134,8 @@ class DefaultTemplate(PicTemplate):
         column_width_list = 225
 
         # 确定表格底版的长和宽
-        table_width = (160 + margin) * 10 + 3 + margin * 12
-        table_height = 14 * row_height_list + 3
+        table_width = (column_num + 1) * column_width_list + 3
+        table_height = (row_num + 1) * row_height_list + 3
 
         # 新建白板图片
         table = ImageFactory(
@@ -152,7 +158,8 @@ class DefaultTemplate(PicTemplate):
             basis_point[1] += row_height_list
 
         # 向单元格中填字
-        for i, text in enumerate(('上课时间', '周一', '周二', '周三', '周四', '周五', '周六', '周日')):
+        first_lis = ['上课时间', '周一', '周二', '周三', '周四', '周五', '周六', '周日']
+        for i, text in enumerate(first_lis[:column_num + 1]):
             header = simple_text(text, self.basic_font_size, self.using_font, self.colors['blue'])
             table.img_paste(
                 header,

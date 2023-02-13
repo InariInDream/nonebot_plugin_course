@@ -143,7 +143,7 @@ class CourseManager(object):
             (self.cwd / 'data' / 'course_config' / 'menus').mkdir()
         if not (self.cwd / 'data' / 'course_config' / 'config.json').exists():
             with (self.cwd / 'data' / 'course_config' / 'config.json').open('w', encoding='utf-8') as fp:
-                fp.write(json.dumps({'default': 'font_path'}))
+                fp.write(json.dumps({'default': 'simhei.ttf'}))
 
     def generate_timetable_image(self, event: GroupMessageEvent, week=None) -> Image:
         """

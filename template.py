@@ -84,12 +84,14 @@ class DefaultTemplate(PicTemplate):
         user_data = data_manager.load_class_info()[f"{user_id}"]
         # 列数
         try:
+            # 读取配置文件
             column_num = get_driver().config.column_num
         except :
             column_num = 7
 
         # 行数
         try:
+            # 读取配置文件
             row_num = get_driver().config.row_num
         except:
             row_num = 13

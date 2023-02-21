@@ -100,8 +100,11 @@ async def _(event: GroupMessageEvent, arg: Message = CommandArg()):
     args = arg.extract_plain_text().strip()
     if args == "":
         await check_timetable.finish("请输入周数")
-    course_manager.set_week(event, int(args))
-    await set_now_week.finish(f"设置成功,{user_id}当前周数{args}")
+    if int(args) < 1:
+        await set_now_week.finish("设置周数不能小于1")
+    else:
+        course_manager.set_week(event, int(args))
+        await set_now_week.finish(f"设置成功,{user_id}当前周数{args}")
 
 
 @check_timetable.handle()

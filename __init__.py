@@ -114,6 +114,8 @@ async def _(event: GroupMessageEvent, arg: Message = CommandArg()):
         await check_timetable.finish("请输入周数")
     else:
         week = int(args)
+        if week < 1:
+            await check_timetable.finish("周数不能小于1")
         img = course_manager.generate_week_image(event, week)
         if not isinstance(img, Image.Image):
             await check_timetable.finish(img)

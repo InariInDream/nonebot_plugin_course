@@ -6,7 +6,7 @@ import datetime
 import json
 
 from nonebot.adapters.onebot.v11 import GroupMessageEvent
-from nonebot import logger
+from nonebot import logger, get_driver
 from pydantic import error_wrappers
 
 from .template import DefaultTemplate, PicTemplate
@@ -307,7 +307,8 @@ class CourseManager(object):
         user_exact_time = self.data_manager.course_data[str(event.user_id)]["exact_time"]
         is_in_class = 0
         next_class = 0
-        for i in range(1, 14):
+        row_num = get_driver().config.row_num
+        for i in range(1, row_num + 1):
             # 今日上下课时间
             course_start_time = f"{current_day} {user_exact_time[str(i)]['start']}"  # 注意有空格
             course_end_time = f"{current_day} {user_exact_time[str(i)]['end']}"
@@ -380,7 +381,8 @@ class CourseManager(object):
         user_exact_time = self.data_manager.course_data[str(event.user_id)]["exact_time"]
         next_class = 0
         is_8 = 0
-        for i in range(1, 14):
+        row_num = get_driver().config.row_num
+        for i in range(1, row_num + 1):
             for course in today_data[str(i)]:
                 if current_week in course['week']:
                     msg += f"明天的第一节课为{course['name']},地点为{course['classroom']}\n,上课时间为{user_exact_time[str(i)]['start']}\n"

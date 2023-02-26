@@ -307,7 +307,10 @@ class CourseManager(object):
         user_exact_time = self.data_manager.course_data[str(event.user_id)]["exact_time"]
         is_in_class = 0
         next_class = 0
-        row_num = get_driver().config.row_num
+        try:
+            row_num = get_driver().config.row_num
+        except:
+            row_num = 13
         for i in range(1, row_num + 1):
             # 今日上下课时间
             course_start_time = f"{current_day} {user_exact_time[str(i)]['start']}"  # 注意有空格
@@ -381,7 +384,10 @@ class CourseManager(object):
         user_exact_time = self.data_manager.course_data[str(event.user_id)]["exact_time"]
         next_class = 0
         is_8 = 0
-        row_num = get_driver().config.row_num
+        try:
+            row_num = get_driver().config.row_num
+        except:
+            row_num = 13
         for i in range(1, row_num + 1):
             for course in today_data[str(i)]:
                 if current_week in course['week']:

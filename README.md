@@ -143,7 +143,7 @@ nb plugin install nonebot-plugin-course
 在src文件夹下的plugin文件夹里使用`git clone`
 
 ### 初次使用
-1. 上一步完成以后启动一次bot，会自动在根目录的/data文件夹(即bot.py所在文件夹)下生成一个名为course_config的文件夹
+1. 上一步完成以后启动一次bot，会自动在根目录的/data文件夹(即bot.py同级文件夹)下生成一个名为course_config的文件夹
 
 [//]: # ()
 [//]: # (    #### **注意**：请确保自己的bot.py同级的文件夹下有一个名为data的文件夹，若没有请自行创建)
